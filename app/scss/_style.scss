@@ -365,10 +365,10 @@ h2, h3 {
 }
 
 .ngdialog.ngdialog-closing {
-  opacity: 0;
+  display: none !important;
 
   .ngdialog-content {
-    opacity: 0;
+    display: none;
   }
 }
 
