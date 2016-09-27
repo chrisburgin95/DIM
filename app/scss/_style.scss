@@ -169,7 +169,7 @@ dd {
     top: 0;
     bottom: 0;
     min-width: 570px;
-    width: 50%;
+    max-width: 50%;
     transition: 2s;
     animation: ngdialog-fadein .3s;
   }
@@ -365,7 +365,7 @@ h2, h3 {
 }
 
 .ngdialog.ngdialog-closing {
-  display: none !important;
+  display: none;
 
   .ngdialog-content {
     display: none;
