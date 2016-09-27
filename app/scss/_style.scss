@@ -124,16 +124,15 @@ div:focus, span:focus {
   margin-left: -10px;
   margin-bottom: 4px;
   padding-left: 5px;
-  height: 22px;
+  height: 28px;
   background: rgb(46, 46, 46);
   border: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid $orange;
   color: white;
+  outline: 0;
 
   &:hover, &:focus {
     background: transparent;
-    outline: none;
-    border-bottom: 1px solid $orange;
   }
 }
 
@@ -164,11 +163,15 @@ dd {
   justify-content: center;
 
   .ngdialog-content {
-    max-height: fit-content;
-    max-width: 50%;
     background-color: #222;
-    border: solid 1px #3e3e3e;
-    height: 70%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    min-width: 570px;
+    width: 50%;
+    transition: 2s;
+    animation: ngdialog-fadein .3s;
   }
 }
 
@@ -200,7 +203,8 @@ a {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   flex: 1;
-  padding: 15px;
+  padding: 0 15px;
+  padding-bottom: 15px;
 }
 
 .ngdialog-close {
@@ -232,11 +236,11 @@ a {
 
 @keyframes ngdialog-fadein {
   0% {
-    opacity: 0;
+    transform: translateX(100%);
   }
 
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -250,18 +254,21 @@ a {
 
 .ngdialog-overlay {
   position: fixed;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.15);
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   -webkit-backface-visibility: hidden;
-  animation: ngdialog-fadein 0s;
 }
 
 .ngdialog.ngdialog-closing .ngdialog-overlay {
   -webkit-backface-visibility: hidden;
-  animation: ngdialog-fadeout 0s;
+  animation: ngdialog-fadeout .2s;
+
+  .ngdialog-content {
+    animation: ngdialog-fadeout .1s;
+  }
 }
 
 .ngdialog-content {
@@ -271,9 +278,8 @@ a {
   z-index: 100;
   > div > {
     h1, h2, h3, p, table, dl {
-      padding-left: 25px;
-      padding-right: 25px;
     }
+
   }
   form {
     padding: 0;
@@ -282,9 +288,8 @@ a {
     flex-shrink: 0;
     margin-top: 0;
     margin-bottom: 0;
-    padding: 15px 25px;
-    background-color: #101010;
-    border-bottom: solid 1px #3e3e3e;
+    padding: 15px;
+    font-weight: 200;
   }
   h2 {
     margin-top: 0;
@@ -359,9 +364,12 @@ h2, h3 {
   margin: 5px 0;
 }
 
-.ngdialog.ngdialog-closing .ngdialog-content {
-  -webkit-backface-visibility: hidden;
-  animation: ngdialog-fadeout 0s;
+.ngdialog.ngdialog-closing {
+  opacity: 0;
+
+  .ngdialog-content {
+    opacity: 0;
+  }
 }
 
 .ngdialog-close:before {
@@ -420,7 +428,6 @@ input, select, option {
   right: 0;
   height: 50px;
   background-color: #222;
-  border-bottom: solid 1px #6D6D6D;
   .header-right {
     cursor: default;
     float: right;
@@ -482,9 +489,13 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 14px;
-  border-bottom: solid 1px #6D6D6D;
-  border-top: solid 1px #2B2B2B;
-  border-left: solid 1px #2b2b2b;
+  border-bottom: 1px solid #434444;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2f2f2f;
+  }
+
   span[role="button"] {
     cursor: pointer;
   }
@@ -515,7 +526,7 @@ img {
 }
 
 .on-drag-enter > div, .on-drag-hover > div {
-  background-color: rgba(200, 200, 200, 0.2);
+  background-color: rgba(200, 200, 200, 0.1);
 }
 
 .sub-section {
@@ -537,9 +548,6 @@ img {
   background-position: 4px 4px;
   background-image: url('../images/bg_inventory_bucket_single_crop.png');
   background-repeat: no-repeat;
-  &.on-drag-hover {
-    box-shadow: inset 0 0 6px 0 rgba(200, 200, 200, 0.7);
-  }
 }
 
 #drag-help {
@@ -714,8 +722,7 @@ dim-store-heading {
   position: relative;
   height: 50px;
   padding: 0 30px 0 44px;
-  /* background: rgba(30, 36, 43, .5); */
-  text-shadow: 1px 1px 1px #000000;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.87);
   color: #f5f5f5;
   text-decoration: none;
   background-size: cover;
@@ -897,7 +904,6 @@ dim-store-heading {
   font-size: 15px;
   line-height: 41px;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   cursor: pointer;
   &:hover {
@@ -932,8 +938,6 @@ dim-store-heading {
   bottom: initial;
   margin: 0;
   padding: 0;
-  border: solid 1px #131313;
-  border-top: none;
   color: rgba(245, 245, 245, 0.6);
   margin-bottom: 10px;
   cursor: pointer;
@@ -1004,7 +1008,6 @@ dim-store-heading {
   .ngdialog-content {
     width: 40em;
     background-color: #222;
-    border: solid 1px #3e3e3e;
     height: fit-content !important;
   }
   .ngdialog-inner-content {
@@ -1479,13 +1482,15 @@ g {
   flex-direction: row;
   padding-left: 0px;
   overflow: hidden;
-  border-top: solid 1px #383838;
-  border-bottom: solid 1px #111;
   background-color: #222;
+  border-bottom: 1px solid #434444;
+
+  &:last-of-type {
+    border: 0;
+  }
 
   &:hover {
     background-color: #151515;
-    border-top: solid 1px #151515;
   }
 
   > span:first-child {
@@ -1700,11 +1705,9 @@ button.toast-close-button {
       border-radius: 3px 3px 3px 3px;
       background-position: 15px 15px;
       background-repeat: no-repeat;
-      box-shadow: 0 0 12px #999999;
       color: white;
     }
     :hover {
-      box-shadow: 0 0 12px #000000;
       cursor: pointer;
     }
     .toast-info {
@@ -2150,7 +2153,6 @@ dim-manifest-progress {
     font-size: 1rem;
     padding: 1.5rem 1.5rem;
     background-color: #222;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
 
     i {
       font-size: 2rem;
@@ -2168,6 +2170,7 @@ dim-manifest-progress {
     &.ng-leave, &.ng-enter.ng-enter-active {
       opacity: 1;
     }
+
   }
 }
 
