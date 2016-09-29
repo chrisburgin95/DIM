@@ -240,6 +240,16 @@ a {
 
 @keyframes ngdialog-fadein {
   0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ngdialog-slidein {
+  0% {
     transform: translateX(100%);
   }
 
@@ -248,6 +258,22 @@ a {
   }
 }
 
+.ngdialog * {
+  box-sizing: inherit;
+  &:before, &:after {
+    box-sizing: inherit;
+  }
+}
+
+@keyframes ngdialog-slideout {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
 
 .ngdialog * {
   box-sizing: inherit;
