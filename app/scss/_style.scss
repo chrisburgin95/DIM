@@ -504,6 +504,10 @@ img {
   margin-bottom: 10px;
 }
 
+.title-wrapper {
+  margin-bottom: 1px;
+}
+
 .title {
   flex: 1;
   padding: 0 16px;
@@ -514,7 +518,6 @@ img {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 14px;
-  border-bottom: 1px solid #434444;
   cursor: pointer;
 
   &:hover {
