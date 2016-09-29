@@ -180,7 +180,7 @@ dd {
 }
 
 a {
-  color: #68a0b7;
+  color: $blue;
   font-size: 13px;
 }
 
@@ -383,7 +383,7 @@ a {
   color: #eee;
   display: block;
   &:hover {
-    color: #68a0b7;
+    color: $blue;
     cursor: pointer;
   }
 }
@@ -1541,7 +1541,7 @@ g {
       font-size: 1.2em;
     }
     &:hover {
-      background-color: #68a0b7;
+      background-color: $blue;
       color: #222;
 
       &.delete {
