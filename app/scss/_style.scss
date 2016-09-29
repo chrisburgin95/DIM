@@ -175,7 +175,7 @@ dd {
     min-width: 570px;
     max-width: 50%;
     transition: 2s;
-    animation: ngdialog-fadein .3s;
+    animation: ngdialog-slidein .3s;
   }
 }
 
@@ -292,12 +292,14 @@ a {
   -webkit-backface-visibility: hidden;
 }
 
-.ngdialog.ngdialog-closing .ngdialog-overlay {
-  -webkit-backface-visibility: hidden;
-  animation: ngdialog-fadeout .2s;
+.ngdialog.ngdialog-closing {
+  .ngdialog-overlay {
+    -webkit-backface-visibility: hidden;
+    animation: ngdialog-slideout .3s;
+  }
 
   .ngdialog-content {
-    animation: ngdialog-fadeout .1s;
+    animation: ngdialog-slideout .3s;
   }
 }
 
@@ -392,14 +394,6 @@ h2, h3 {
 
 .ngdialog-inner-content > p {
   margin: 5px 0;
-}
-
-.ngdialog.ngdialog-closing {
-  display: none;
-
-  .ngdialog-content {
-    display: none;
-  }
 }
 
 .ngdialog-close:before {
