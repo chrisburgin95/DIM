@@ -499,6 +499,7 @@ img {
   span[role="button"] {
     cursor: pointer;
   }
+
   .bucket-count {
     float: right;
   }
@@ -1518,6 +1519,10 @@ g {
     &:hover {
       background-color: #68a0b7;
       color: #222;
+
+      &.delete {
+        background-color: #ff9294;
+      }
     }
   }
 }
