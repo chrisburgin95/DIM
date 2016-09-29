@@ -132,6 +132,7 @@ div:focus, span:focus {
   color: white;
   outline: 0;
   font-size: 13px;
+  transition: .2s;
 
   &:hover, &:focus {
     background-color: transparent;
