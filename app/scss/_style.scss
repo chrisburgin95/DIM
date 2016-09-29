@@ -295,7 +295,7 @@ a {
 .ngdialog.ngdialog-closing {
   .ngdialog-overlay {
     -webkit-backface-visibility: hidden;
-    animation: ngdialog-slideout .3s;
+    display: none;
   }
 
   .ngdialog-content {
@@ -332,18 +332,20 @@ a {
   }
   dl {
     background-color: #2F2F2F;
-    padding: 5px 15px;
     margin-bottom: 10px;
+    padding: 15px;
   }
   dt {
     font-style: normal;
     font-weight: 400;
     font-size: 1.1em;
-    margin-top: 10px;
     color: $orange;
+    margin-top: 0;
   }
   dd {
-    margin: 10px 10px 15px 10px;
+    margin: 10px;
+    margin-bottom: 0;
+    margin-left: 0;
   }
   table {
     padding: 0;
